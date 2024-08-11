@@ -4,6 +4,44 @@
   
   
   <entry>
+    <title>leetcode82</title>
+    <link href="/posts/e9b0b08.html"/>
+    <url>/posts/e9b0b08.html</url>
+    
+    <content type="html"><![CDATA[<h3 id="82-删除排序链表中的重复元素-II"><a href="#82-删除排序链表中的重复元素-II" class="headerlink" title="82. 删除排序链表中的重复元素 II"></a><a href="https://leetcode.cn/problems/remove-duplicates-from-sorted-list-ii/description/">82. 删除排序链表中的重复元素 II</a></h3><p>给定一个已排序的链表的头 head ， 删除原始链表中所有重复数字的节点，只留下不同的数字 。返回 已排序的链表 。</p><p>示例 1：<br>输入：head &#x3D; [1,2,3,3,4,4,5]<br>输出：[1,2,5]</p><p>示例 2：<br>输入：head &#x3D; [1,1,1,2,3]<br>输出：[2,3]</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * Definition for singly-linked list.</span><br><span class="hljs-comment"> * function ListNode(val, next) &#123;</span><br><span class="hljs-comment"> *     this.val = (val===undefined ? 0 : val)</span><br><span class="hljs-comment"> *     this.next = (next===undefined ? null : next)</span><br><span class="hljs-comment"> * &#125;</span><br><span class="hljs-comment"> */</span><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> &#123;<span class="hljs-type">ListNode</span>&#125; <span class="hljs-variable">head</span></span><br><span class="hljs-comment"> * <span class="hljs-doctag">@return</span> &#123;<span class="hljs-type">ListNode</span>&#125;</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">var</span> deleteDuplicates = <span class="hljs-keyword">function</span> (<span class="hljs-params">head</span>) &#123;<br>    <span class="hljs-keyword">let</span> dummyHead = &#123; <span class="hljs-attr">next</span>: head &#125;<br>    <span class="hljs-keyword">let</span> p = dummyHead <span class="hljs-comment">// 已处理完的链表的尾部</span><br>    <span class="hljs-keyword">while</span> (p) &#123;<br>        <span class="hljs-keyword">let</span> count = <span class="hljs-number">1</span> <span class="hljs-comment">// null也是1个节点，count算1</span><br>        <span class="hljs-keyword">let</span> cur = p.<span class="hljs-property">next</span>;<br>        <span class="hljs-keyword">while</span> (cur &amp;&amp; cur.<span class="hljs-property">next</span>?.<span class="hljs-property">val</span> === cur.<span class="hljs-property">val</span>) &#123;<br>            count++<br>            cur = cur.<span class="hljs-property">next</span><br>        &#125;<br><br>        <span class="hljs-keyword">if</span> (count &gt; <span class="hljs-number">1</span>) &#123;<br>            p.<span class="hljs-property">next</span> = cur.<span class="hljs-property">next</span><br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            p = cur<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-keyword">return</span> dummyHead.<span class="hljs-property">next</span><br>&#125;;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>Algorithm</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>leetcode19</title>
+    <link href="/posts/488b69c9.html"/>
+    <url>/posts/488b69c9.html</url>
+    
+    <content type="html"><![CDATA[<h3 id="19-删除链表的倒数第-N-个结点"><a href="#19-删除链表的倒数第-N-个结点" class="headerlink" title="19. 删除链表的倒数第 N 个结点"></a><a href="https://leetcode.cn/problems/remove-nth-node-from-end-of-list/">19. 删除链表的倒数第 N 个结点</a></h3><p>给你一个链表，删除链表的倒数第 n 个结点，并且返回链表的头结点。</p><p>示例 1：<br>输入：head &#x3D; [1,2,3,4,5], n &#x3D; 2<br>输出：[1,2,3,5]</p><p>示例 2：<br>输入：head &#x3D; [1], n &#x3D; 1<br>输出：[]</p><p>示例 3：<br>输入：head &#x3D; [1,2], n &#x3D; 1<br>输出：[1]</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * Definition for singly-linked list.</span><br><span class="hljs-comment"> * function ListNode(val, next) &#123;</span><br><span class="hljs-comment"> *     this.val = (val===undefined ? 0 : val)</span><br><span class="hljs-comment"> *     this.next = (next===undefined ? null : next)</span><br><span class="hljs-comment"> * &#125;</span><br><span class="hljs-comment"> */</span><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> &#123;<span class="hljs-type">ListNode</span>&#125; <span class="hljs-variable">head</span></span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> &#123;<span class="hljs-type">number</span>&#125; <span class="hljs-variable">n</span></span><br><span class="hljs-comment"> * <span class="hljs-doctag">@return</span> &#123;<span class="hljs-type">ListNode</span>&#125;</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">var</span> removeNthFromEnd = <span class="hljs-keyword">function</span>(<span class="hljs-params">head, n</span>) &#123;<br>    <span class="hljs-keyword">let</span> dummyHead = &#123;<span class="hljs-attr">next</span>: head&#125; <span class="hljs-comment">// 注意删除就有可能，list=[1],全删掉,要有虚拟头结点</span><br>    <span class="hljs-keyword">let</span> fast = dummyHead<br>    <span class="hljs-keyword">while</span>(n--) &#123;<br>        fast = fast.<span class="hljs-property">next</span><br>    &#125;<br>    <span class="hljs-keyword">let</span> slow = dummyHead<br><br>    <span class="hljs-comment">// 只要下一个有就往下走</span><br>    <span class="hljs-keyword">while</span>(fast?.<span class="hljs-property">next</span>) &#123;<br>        slow = slow.<span class="hljs-property">next</span><br>        fast = fast.<span class="hljs-property">next</span><br>    &#125;<br><br>    slow.<span class="hljs-property">next</span> = slow.<span class="hljs-property">next</span>?.<span class="hljs-property">next</span> ?? <span class="hljs-literal">null</span><br>    <span class="hljs-keyword">return</span> dummyHead.<span class="hljs-property">next</span><br>&#125;;<br><br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>Algorithm</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>leetcode148</title>
     <link href="/posts/ad5ed823.html"/>
     <url>/posts/ad5ed823.html</url>
